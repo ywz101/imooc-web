@@ -50,18 +50,57 @@
 
 
         // 3.暂时性死区
-        // var没有暂时性死区  
+        // var没有暂时性死区
         // let和const存在暂时性死区，只要作用域内存在let、const，它们所声明的变量或常量就自动“绑定”这个区域，不再受到外部作用域的影响。
-        let a = 2;
-        // 函数作用域只有在函数被调用的时候才会形成
-        function fun() {
-            console.log(a);
-            let a = 1;
-        };
-        fun();
+        // let a = 2;
+        // // 函数作用域只有在函数被调用的时候才会形成
+        // function fun() {
+        //     console.log(a);
+        //     let a = 1;
+        // };
+        // fun();
+        // 小结：使用let和const声明的变量和常量出现的一系列错误，都是为了使我们形成良好的编程习惯。先定义变量或常量，再使用变量或常量就不会出现暂时性死区的问题。
+
+
         // 4.window对象的属性和方法
-        
+        // 全局作用域中，var声明的变量，通过 function 声明的函数，会自动变成 window 对象的属性或方法。
+        // var/function
+        // var age = 18;
+        // function add() {};
+        // console.log(window.age); // 18
+        // console.log(window.add === add); // true
+
+        // 使用let、const不会自动变成 window 对象的属性或方法。
+        // let age = 18;
+        // const add = function () { };
+        // console.log(window.age);          // undefined
+        // console.log(window.add === add); // false
+
+
         // 5.块级作用域
+        // 什么是块级作用域？
+
+        // var 没有块级作用域
+        // for (var i = 0; i < 3; i++) {
+
+        // }
+        // console.log(i); // 3
+
+        // let/const 有块级作用域
+        // for (let i = 0; i < 3; i++) {
+
+        // }
+        // console.log(i);   // error: i is not defined.
+
+        function fun() {
+            for (let i = 0; i < 3; i++) {
+                console.log(i); // 0 1 2
+            }
+        }
+        fun();
+        console.log(i);         // i is not defined.
+
+
     </script>
 </body>
 
