@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-let、const和var的区别?</title>
+</head>
+
+<body>
+    <script>
+        // 1.重复声明(已经存在的变量或常量，又声明了一遍)
+        // 1.1 使用var关键字声明的变量，允许重复声明。
+        // var a = 1;
+        // 随着代码的增多，忘记了已经声明了变量a，对已经存在的变量a，又声明了一遍。
+        // var a = 2;
+        // console.log(a); // 2
+        // 使用console.log(a)语句，浏览器控制台会显示2，即最后一次声明的变量a的值，控制台并不会报错，但这并不是我们的本意。
+
+        // 1.2 let、const不允许重复声明。
+        // let b = 1;
+        // 随着代码的增多，忘记了已经声明了变量a，对已经存在的变量a，又声明了一遍。
+        // let b = 2;
+        // console.log(b); // error: Identifier 'b' has already been declared(报错：标识符“b”已声明)
+
+        // const c = 1;
+        // const c = 2;
+        // console.log(c); // error: Identifier 'c' has already been declared(报错：标识符“b”已声明)
+        // function fun(a) { // 在函数形参中的a，也是一个变量
+        //     let a = 1;
+        // }
+        // fun(); // error: Identifier 'a' has already been declared
+
+
+        // 2.变量提升
+        // 2.1.var 会提升变量的声明到当前作用域的顶部
+        // console.log(a);
+        // var a = 1; // undefined
+        // 模拟浏览器解析代码：
+        // var a;
+        // console.log(a); // undefined
+        // a = 1;
+        // 2.2.let和const不存在变量提升
+        // console.log(a); // error: Cannot access 'a' before initialization(在初始化之前无法访问“A”)
+        // let a = 1;
+        // console.log(b); // Cannot access 'b' before initialization
+        // const b = 1;
+        // 因为变量提升是不符合直觉的，使用let和const有助于程序员养成良好的编程习惯，对于所有的变量和常量，做到先声明，后使用。
+
+
+        // 3.暂时性死区
+        // var没有暂时性死区  
+        // let和const存在暂时性死区，只要作用域内存在let、const，它们所声明的变量或常量就自动“绑定”这个区域，不再受到外部作用域的影响。
+        let a = 2;
+        // 函数作用域只有在函数被调用的时候才会形成
+        function fun() {
+            console.log(a);
+            let a = 1;
+        };
+        fun();
+        // 4.window对象的属性和方法
+        
+        // 5.块级作用域
+    </script>
+</body>
+
+</html>

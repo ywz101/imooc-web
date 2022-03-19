@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let和const是什么？</title>
+</head>
+
+<body>
+    <script>
+        // 1.let和const是什么?
+        // 在ES6及ES6+的版本中，let用来声明变量的关键字。const是用来声明常量的关键字。
+
+        // 2.let和const的基本用法
+        let age = 18;
+        const sex = 'male';
+        const username = 'Alex';
+        console.log(age, sex, username);
+
+        // 3.什么是变量、常量
+        age = 19;
+        sex = 'female';
+        username = 'ZhangSan';
+        console.log(age, sex, username); // Error: Assignment to constant variable. (报错：赋值给常数变量。)
+        // 小结：let声明的就是变量，变量一旦初始化，还可以重新赋值。const声明的就是常量，常量一旦初始化，就不能重新赋值了，否则就会报错。
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么需要const来声明常量？</title>
+</head>
+
+<body>
+    <script>
+        // 1.为什么需要 const 用来声明常量？
+        // 假如只有 let 用来声明变量
+        let sex = 'male'; // 变量
+        console.log(sex);
+        // 假如很多行代码后...
+        // 不小心对 sex 变量做了两次修改。
+        sex = 'female';
+        console.log(sex);
+        // 这是一种隐性错误，虽然程序没有报错，但是这样不符合现实中的正常情况，人的sex(性别)数据，通常不能改变。
+        // 因此，对于性别这种一旦出生就不会改变的数据，我们需要用 const 关键字来声明，使用 const 声明的常量，一旦初始化就不能重新赋值，这样程序员可以通过报错信息来判断是否对性别进行了重新赋值。
+
+
+        // 2.使用const 的注意事项
+        // 2.1.使用 const 声明常量，一旦声明，就必须立即初始化，不能留到以后赋值。
+        // const mySex; // error: Missing initializer in const declaration
+        // (报错：常量声明中缺少初始值设定项)
+        // mySex = 'male';
+
+        // 2.2.const 声明的常量，允许在不重新赋值的情况下修改它的值。
+        // 2.2.1.对于基本数据类型，只能通过重新赋值的方式来修改它的值，但是 const 声明的常量一旦初始化就不能再重新赋值，所以会error。
+        // const sex2 = 'male';
+        // sex2 = 'female'; // Assignment to constant variable.
+
+        // 2.2.2.对于引用数据类型，允许在不重新赋值的情况下修改它的值。
+        const person = { username: 'Alex' };
+        person.username = 'ZhangSan';
+        console.log(person); // {username: 'ZhangSan'}
+
+
+        // 3.什么时候用 let，什么时候用 const ？
+        // 3.1对于一些初始化之后，需要重新修改值的数据，毫无疑问的使用 let
+        // 3.2对于一些需求不确定的数据，则可以先使用 const ，因为使用 const 可以避免程序员在开发中无意的两次赋值操作，即使需求改动了，需要对数据重新赋值，也可以通过报错，快速的将 const 改为 let，这样的好处就是在遇到一时无法确定使用哪个let和const哪个关键字更合适的时候，省去不必要的纠结。
+
+    </script>
+</body>
+
+</html>
