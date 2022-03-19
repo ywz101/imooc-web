@@ -92,15 +92,27 @@
         // }
         // console.log(i);   // error: i is not defined.
 
-        function fun() {
-            for (let i = 0; i < 3; i++) {
-                console.log(i); // 0 1 2
-            }
-        }
-        fun();
-        console.log(i);         // i is not defined.
+        // function fun() {
+        //     for (let i = 0; i < 3; i++) {
+        //         console.log(i); // 0 1 2
+        //     }
+        // }
+        // fun();
+        // console.log(i);         // i is not defined.
 
+        // 和let、const配合有哪些块级作用域？
+        // {}
+        // for () {}
+        // while () {}
+        // do {} while()
+        // if () {}
+        // switch() {}
 
+        // 注意：
+        // 1.const person = {}; 对象中的{}是构成块级作用域的
+        // 2.const person = {
+        //     getAge: function () {} // 对象中的方法中的{}可以构成块级作用域或函数作用域
+        // };
     </script>
 </body>
 

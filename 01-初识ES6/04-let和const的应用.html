@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-let和const的应用</title>
+    <style>
+        body {
+            padding: 50px 0 0 150px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            font-size: 80px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">0</button>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+
+    <script>
+        // 要求：点击按钮0的时候在控制台中输出0，点击按钮1的时候在控制台中输出1，点击按钮2的时候在控制台中输出2.
+        // 1.获取所有的button按钮
+        let btns = document.querySelectorAll('.btn');
+        // 2.使用for循环遍历btns
+        for (let i = 0; i < btns.length; i++) {
+            // 3.给每一个按钮都绑定onclick事件监听
+            btns[i].onclick = function () {
+                // 4.当按钮分别被点击的时候，在控制台中输出变量i对应的值
+                console.log(i);
+            };
+        }
+    </script>
+</body>
+
+</html>

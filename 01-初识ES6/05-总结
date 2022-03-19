@@ -1,0 +1,27 @@
+let: 声明变量
+
+const: 声明常量
+
+const 声明的常量是不允许重新赋值的，这个特性经常用来配合一旦声明就不希望初始化的数据使用。
+
+const 声明后必须立即初始化，不能留到以后再赋值。
+const 声明的常量可以修改，但不能以重新赋值的方式修改，如引用数据中const声明的对象的属性通过对象.属性的方式可以修改数据。
+const person = {
+    userName: 'Alex'
+};
+person.userName = 'ZhangSan';
+console.log(person);   // {username: 'ZhangSan'}
+
+let、cosnt与var的区别
+1) 重复声明:
+var 是允许重复声明的，let、const不允许重复声明。
+2) 变量提升:
+var 是有变量提升的，let、const没有变量提升。
+3) 暂时性死区:j
+var 没有暂时性死区，let、const有暂时性死区。
+4) window 对象的属性和方法(全局作用域):
+在全局作用中，var声明的变量或者function声明的函数，会自动window对象的属性和方法，而let、const不会自动成为window对象的属性和方法。
+5) 块级作用域:
+var 没有块级作用域，let、const可以形成块级作用域。
+和let、const结合有哪些块级作用域？
+{}、for () {}、while () {}、do {} while ()、if () {}、switch () {}
