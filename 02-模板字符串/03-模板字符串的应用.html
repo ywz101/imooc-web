@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-模板字符串的应用</title>
+    <style>
+        body {
+            padding: 50px 0 0 150px;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        ul {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>学生信息表</p>
+    <ul id="list">
+        <li style="list-style: none">信息加载中……</li>
+    </ul>
+
+    <script>
+        // 数据
+        const students = [
+            {
+                username: 'Alex',
+                age: 18,
+                sex: 'male'
+            },
+            {
+                username: 'ZhangSan',
+                age: 28,
+                sex: 'male'
+            },
+            {
+                username: 'Hanmeimei',
+                age: 16,
+                sex: 'female'
+            }
+        ];
+        // 获取ul
+        const list = document.querySelector('#list');
+        // 定义一个空字符串
+        let html = ``;
+        // for循环遍历数据students
+        for (let i = 0; i < students.length; i++) {
+            // 在字符串中注入内容
+            html += `<li>我的名字是：${students[i].username}, 年龄是：${students[i].age}, 性别是：${students[i].sex}。</li>`;
+        }
+        // 在list中加入内容
+        list.innerHTML = html;
+    </script>
+</body>
+
+</html>
