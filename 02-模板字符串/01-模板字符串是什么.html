@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-模板字符串是什么</title>
+</head>
+
+<body>
+    <script>
+        // 1.认识模板字符串
+        // 一般字符串：'Alex'、"Alex"
+        // 模板字符串：`Alex`
+        const username1 = 'Alex';
+        const username2 = `Alex`;
+        console.log(username1, username2);      // Alex Alex 
+        console.log(username1 === username2);   // true
+        // 小结：模板字符串和一般字符串在正常情况下没有区别。
+
+        // 2.模板字符串与一般字符串的区别
+        const person = {
+            username: 'Alex',
+            age: 18,
+            sex: 'male'
+        };
+        // 一般字符串
+        const info1 = '我的名字是：' + person.username + '，年龄是：' + person.age + '，性别是：' + person.sex;
+        console.log(info1);             // 我的名字是：Alex，年龄是：18，性别是：male
+        // 模板字符串
+        const info2 = `我的名字是：${person.username}，年龄是：${person.age}，性别是：${person.sex}`;
+        console.log(info2);            // 我的名字是：Alex，年龄是：18，性别是：male
+        console.log(info1 === info2); // true
+    </script>
+</body>
+
+</html>

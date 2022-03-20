@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-模板字符串的注意事项</title>
+</head>
+
+<body>
+    <script>
+        // 1.模板字符串的注意事项
+        // 字符串换行(一般字符串)
+        const info1 = 'hello\nworld';
+        console.log(info1);             // hello
+        // world
+
+        // 字符串换行(模板字符串)
+        const info2 = `hello
+world`;
+        console.log(info2);             // hello
+        // world
+        console.log(info1 === info2);   // true
+        // 注意：模板字符串中所有的换行、空格或缩进都会保留输出。
+
+
+        // 2.输出`和\等特殊字符
+        const info3 = `\``;
+        const info4 = `\\`;
+        console.log(info3, info4);      // ` \
+        // 注意：在模板字符串中输出特殊字符需要使用转义符号\，当输出\时，需要\\
+
+
+        // 3.模板字符串的注入 ${}
+        const username = 'alex';
+        const person = { age: 18, sex: 'male' };
+        const getSex = function (sex) {
+            return sex === 'male' ? '男' : '女';
+        };
+        const info5 = `${username}, ${person.age}, ${getSex(person.sex)}`;
+        console.log(info5);
+        // 注意：只要最终可以得到一个值的就可以通过 ${}注入到模板字符串中。
+    </script>
+</body>
+
+</html>
