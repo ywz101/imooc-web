@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-不适用箭头函数的场景</title>
+</head>
+
+<body>
+    <script>
+        // 'use strict'
+        // 不适用箭头函数的场景
+        // 1.作为构造函数
+        // const Person = () => { };
+        // new Person();   // error: Person is not a constructor(构造函数)，因为构造函数最重要的就是this，而箭头函数没有this。
+
+
+        // 2.需要this指向调用对象的时候
+        // document.onclick = function () {};
+        // document.addEventListener('click', () => {console.log(this)}); // 不指向document，会指向window
+
+
+        // 3.需要arguments的时候
+        // function add() {
+        //     console.log(arguments);
+        // }
+        // add(1, 2);
+
+        const add = () => console.log(arguments);
+        add(1, 2, 3); // arguments is not defined，因为箭头函数中没有arguments，不过可以使用剩余参数一定程度上替代arguments
+    </script>
+</body>
+
+</html>

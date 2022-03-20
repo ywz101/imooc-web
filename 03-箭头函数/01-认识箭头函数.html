@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-认识箭头函数</title>
+</head>
+
+<body>
+    <script>
+        // 1.认识箭头函数 
+        // 匿名箭头函数
+        () => { };
+        // 将匿名箭头函数赋值给一个常量(因为是函数，声明之后一般不会再重新赋值了，所以用const)
+        const add = (x, y) => { return x + y };
+        console.log(add(1, 2)); // 3
+
+
+        // 2.箭头函数的结构
+        // const/let 函数名 = 参数 => 函数体;
+
+
+        // 3.如何将一般函数改写成箭头函数
+        // 声明形式
+        function add2() { };
+        // 声明形式 -> 函数表达式形式
+        const add2 = function () { };
+        // 函数表达式形式 -> 箭头函数
+        const add2 = () => { };
+    </script>
+</body>
+
+</html>

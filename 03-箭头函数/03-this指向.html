@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this指向</title>
+</head>
+
+<body>
+    <script>
+        // 'use strict'
+        // 非箭头函数中的this指向
+        // 1.全局作用域中，this指向window
+        // console.log(this);          // window
+
+        // 2.一般函数(非箭头函数)中的this指向
+        // function add() {
+        //     console.log(this);
+        // }
+        // 只有在函数调用的时候，this 指向才确定，不调用的时候，不知道指向谁
+        // this 指向和函数在哪调用是没有关系的，只和谁在调用有关
+
+        // add();                      // window，虽然指向window，但是并不是通过window调用的，没有谁调用应该指向 undefined，因为是在 "非严格" 模式下，所以浏览器自动转化指向了window。
+        // add()在严格模式下指向 undefined ，非严格模式下指向 window。
+
+        // window.add();           // window
+        // window.add()无论是严格模式下，还是非严格模式下都是指向window
+
+
+        // this指向demo1 (对象打点调用)
+        // const calc = {
+        //     add: add
+        // };
+        // calc.add(); // {add: ƒ} calc对象调用了add函数，因此指向calc对象
+        // const adder = calc.add; // calc.add后面没有()，因此只是保存函数
+        // adder();                // 非严格模式下指向winodw，严格模式下指向undefined
+
+
+        // this指向demo2 (浏览器点击调用)
+        document.onclick = function () {
+            console.log(this);    // 在用户点击的时候，浏览器相当于执行了document.onclick()方法，因此this指向 #document
+        };
+
+
+        // this指向demo3 (构造函数)
+        function Person(username) {
+            this.username = username;
+            console.log(this);
+        }
+        const p = new Person('Alex');
+        // 构造函数中this的指向是构造函数实例化后生成的对象
+    </script>
+</body>
+
+</html>
