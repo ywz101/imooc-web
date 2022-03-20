@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-数组解构赋值的应用</title>
+</head>
+
+<body>
+    <p>12</p>
+    <p>22</p>
+    <p>32</p>
+    <script>
+        // 1.常见的类数组的解构赋值
+        // arguments(类数组没有push等方法)
+        // function func() {
+        //     console.log(arguments);
+        // };
+        // func(1, 2, 3);        
+
+
+        // arguments可以解构赋值
+        // function func() {
+        //     const [a, b] = arguments;
+        //     console.log(a, b);
+        // }
+        // func(1, 2);             // 1 2
+
+
+        // 2.NodeList
+        // console.log(document.querySelectorAll('p')); // NodeList(3) [p, p, p]
+        // const [p1, p2, p3] = document.querySelectorAll('p');
+        // console.log(p1, p2, p3);
+
+
+        // 3.函数参数的解构赋值
+        // const array = [1, 2];
+        // const add = ([x = 0, y = 0]) => x + y;
+        // console.log(add(array));
+
+
+        // 4.交换两个变量的值
+        let x = 1;
+        let y = 2;
+        // 传统写法
+        // let temp = x;
+        // x = y;
+        // y = temp;
+        // console.log(x, y);
+
+        // 解构赋值写法
+        [x, y] = [y, x];
+        console.log(x, y);  // 2 1
+    </script>
+</body>
+
+</html>

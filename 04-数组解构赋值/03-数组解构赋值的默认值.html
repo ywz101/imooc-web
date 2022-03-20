@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-数组解构赋值的默认值</title>
+</head>
+
+<body>
+    <script>
+        // 1.默认值的基本用法
+        const [a, b] = [];
+        console.log(a, b);  // undefined undefined
+        // 等价于const [a, b] = [undefined, undefined];
+
+        // 2.如果想给解构赋值默认值，需要在赋值号 = 的左边，设置相应的值
+        const [c = 1, d = 2] = [];
+        console.log(c, d);  // 1 2
+
+        // 3.默认值的生效条件
+        // 只有当一个数组成员严格等于 (===) undefined时，对应的默认值才会生效。
+        const [g = 3, h = 4] = [3, 0];
+        console.log(g, h);
+        const [e = 3, f = 4] = [, null];
+        console.log(e, f);  // null null
+
+        const [k = 1, i = 2] = [3];
+        console.log(k, i);  // 3 2
+
+        // 4.当默认值是表达式的时候，默认值表达式是惰性求值的
+        // 惰性求值：用不到的就不执行。
+        const func = () => {
+            console.log('我被执行了');
+            return 2
+        };
+        const [x = func()] = [1];
+        console.log(x);
+    </script>
+</body>
+
+</html>
