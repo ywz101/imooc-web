@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-认识剩余参数</title>
+</head>
+
+<body>
+    <script>
+        // 1.认识剩余参数
+        // 用户可以随便传任意数量的参数(...args) 
+        // const add = (x, y, z, ...args) => { };
+        // 2.剩余参数格式
+        // ...参数名, 最好是有语义的参数名，推荐args
+
+
+        // 3.剩余参数的本质
+        // 注意：剩余参数只有在定义的时候，需要在参数名前面加... ，使用的时候直接写参数名就可以了
+        const add = (x, y, ...args) => {
+            console.log(x, y, args);
+        };
+        add(1, 2, 3, 4, 5);  // 1 2 [3, 4, 5]
+        // 剩余参数永远是一个数组，即使没有值，也是空数组。
+        // 剩余参数就是在固定参数匹配完后，将剩余的参数，通过数组的形式集中起来
+        // 3, 4, 5 -> [3, 4, 5]
+    </script>
+</body>
+
+</html>

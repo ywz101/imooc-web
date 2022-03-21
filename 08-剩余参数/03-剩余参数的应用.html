@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-剩余参数的应用</title>
+</head>
+
+<body>
+    <script>
+        // 1.完成 add 函数
+        const add = (...args) => {
+            let sum = 0;
+            for (let i = 0; i < args.length; i++) {
+                sum += args[i];
+            }
+            return sum;
+        };
+        console.log(add(1, 2, 3)); // 6
+
+        // 2.与解构赋值结合使用
+        // 剩余参数不一定非要作为函数参数使用
+        const [num, ...args] = [1, 2, 3, 4];
+        console.log(num, args); // 1, [2, 3 ,4]
+
+        // 和数组解构赋值结合
+        const func = ([...args]) => { console.log(args) };
+        func([1, 2, 3]);
+
+        // 和对象解构赋值结合
+        const { x, y, ...z } = { a: 3, x: 1, y: 2, b: 4 };
+        console.log(x, y, z); // 1 2 {a: 3, b: 4}
+
+    </script>
+</body>
+
+</html>
