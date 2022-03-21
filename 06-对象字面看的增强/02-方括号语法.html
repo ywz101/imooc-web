@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-方括号语法</title>
+</head>
+
+<body>
+    <script>
+        // 1.方括号语法的用法
+        // const prop = 'age';
+        // const abc = 'name';
+        // const person = {
+
+        // };
+        // 使用方括号语法给person对象添加age属性
+        // person[prop] = 18;  // 对象[求值] = 值;
+        // person[abc] = 'Alex';
+        // console.log(person);
+        // 增强的点：在声明对象的同时在{}里面使用方括号[]语法添加属性
+        // const person2 = {
+        //     [prop]: 18,
+        //     [abc]: 'Alex'
+        // };
+        // console.log(person2);
+
+        // 2.方括号中可以放什么
+        // [值或通过计算可以得到值的(表达式)]
+        // const prop = 'age';
+        // const func = () => 'sex';
+        // const person = {
+        //     [prop]: 18,
+        //     [func()]: 'male',
+        //     ['n' + 'ame']: 'Alex'
+        // };
+        // console.log(person);
+
+
+        // 3.方括号语法和点语法的区别
+        // 点语法是方括号语法的特殊形式
+        const person = {};
+        person.age = 18;
+        person['sex'] = 'male';
+        console.log(person);
+        // 属性名由数字、字母、下划线以及$符号构成的时候，并且不能以数字开头的条件下可以使用点语法。(合法标识符的时候，使用点语法)
+        // 其它情况可以使用方括号语法，会更全面一些。
+    </script>
+</body>
+
+</html>
