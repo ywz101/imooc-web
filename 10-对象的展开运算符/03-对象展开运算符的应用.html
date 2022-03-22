@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-对象展开运算符的应用</title>
+</head>
+
+<body>
+    <script>
+        // 1.复制对象
+        // const a = { x: 1, y: 2 };
+        // const b = { ...a };
+        // console.log(b);         // {x: 1, y: 2}
+        // console.log(b === a);  // false
+
+        // 2.用户参数和默认参数
+        // 用户参数：用户调用这个函数的时候，实际写入的参数
+        // 默认参数：用户没有传够参数的时候，使用默认值参数
+        // const logUserInfo = ({ username = 'ZhangSan', age = 0, sex = 'male' } = {}) => console.log(username, age, sex);
+        // logUserInfo({username: 'Alex', age: 18, sex: 'male'});
+
+        const logUserParam = userParam => {
+            const defaultParam = {
+                username: 'ZhangSan',
+                age: 0,
+                sex: 'male'
+            };
+            const { username, age, sex } = { ...defaultParam, ...userParam };
+            console.log(username, age, sex);
+        };
+        logUserParam({ username: 'Alex', age: 18, sex: 'male' });
+    </script>
+</body>
+
+</html>

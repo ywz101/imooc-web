@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-数组展开运算符的应用</title>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <script>
+        // 1.复制数组
+        // const a = [1, 2];
+        // const b = [...a];
+        // a[0] = 3;
+        // console.log(b);         // [1, 2]
+        // console.log(a);         // [3, 2]
+
+        // 2.合并数组
+        // const a = [1, 2];
+        // const b = [3];
+        // const c = [4, 5];
+        // // 合并后的新数组
+        // const d = [...a, ...b, ...c];
+        // console.log(d);            // [1, 2, 3, 4, 5]
+
+        // 3.字符串转为数组
+        // 字符串可以看作一个类数组
+        // console.log(...'Alex');      // 'A','l','e','x'
+        // console.log([...'Alex']);       // ['A', 'l', 'e', 'x']
+        // 数组有很多方法，可以将字符串转为数组，再转为字符串
+        // console.log('Alex'.split('')); // 也可以转为数组，但是没有...展开运算符直观
+
+        // 4.常见的类数组转为数组
+        // arguments
+        function func() {
+            console.log([...arguments]);
+        };
+        func(1, 2);
+        // NodeList
+        console.log([...document.querySelectorAll('p')].push);
+    </script>
+</body>
+
+</html>
