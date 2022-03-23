@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-Set的应用</title>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+
+    <script>
+        // 1.数组去重
+        // (1)将数组作为参数传入到Set
+        // const s = new Set([1, 2, 1]);
+        // // (2)使用展开运算符展开Set，并将展开后的Set成员包裹中[]中
+        // const arr = [...s];
+        // console.log(arr);
+
+
+        // 2.字符串去重
+        // const str = 'abbacbd';
+        // const s = new Set(str);
+        // // 数组转为字符串 [].join('')
+        // const str2 = [...s].join('');
+        // console.log(str2);                  // 'abcd'
+
+
+        // 3.存放DOM元素
+        // 1.获取所有p标签(NodeList)
+        const ps = document.querySelectorAll('p');
+        // 2.创建Set，将ps作为参传入Set
+        const s = new Set(ps);
+        // 3.使用Set的 forEach()方法遍历
+        s.forEach(function (elem) {
+            elem.style.color = 'red';
+            elem.style.backgroundColor = 'yellow';
+        }, document);
+
+    </script>
+</body>
+
+</html>

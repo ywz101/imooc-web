@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Set构造函数的参数</title>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+
+    <script>
+        // 1.数组作为Set的参数
+        const s = new Set([1, 2, 1]);
+        console.log(s);                      // Set(2) {1, 2}
+
+        // 2.字符串、arguments、NodeList、Set等
+        // 字符串作为参数
+        console.log(new Set('hi'));         // Set(2) {'h', 'i'}
+        // arguments作为参数
+        function func() {
+            console.log(new Set(arguments));// Set(2) {1, 2}
+        };
+        func(1, 2, 1);
+        // NodeList作为参数
+        console.log(new Set(document.querySelectorAll('p'))); // Set(3) {p, p, p}   
+        // Set作为参数，相当于复制一个Set
+        const s1 = new Set([1, 2, 1]);
+        console.log(new Set(s1));           // Set(2) {1, 2}
+        console.log(new Set(s1) === s1);    // false
+    </script>
+</body>
+
+</html>

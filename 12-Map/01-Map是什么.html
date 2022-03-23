@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-Map是什么</title>
+</head>
+
+<body>
+    <script>
+        // 1.认识Map(映射)
+        // Map 和 Object 都是键值对的集合
+        // Object  
+        // const person = {
+        //     // 键: 值 (key: value)
+        //     name: 'Alex',
+        //     age: 18,
+        //     sex: 'male'
+        // };
+
+        // Map(没有字面量的写法)
+        // const m = new Map();
+        // console.log(m);         // Map(0) {size: 0}
+        // // set(键,值)方法给Map添加成员
+        // m.set('name', 'Alex');
+        // console.log(m);         // Map(1) {'name' => 'Alex'}
+        // m.set('age', 18);
+        // console.log(m);         // Map(2) {'name' => 'Alex', 'age' => 18}
+
+
+        // 2.Map 和 Object 的区别
+        // 对象一般用字符串当作键
+        // const obj = {
+        //     name: 'Alex',   // 'name' -> name
+        //     [{}]: 'object'  // [{}] -> [object object]
+        // };
+        // console.log(obj);
+        // console.log({}.toString());     // [object object]
+
+        // 基本数据类型和引用数据类型都可以作为 Map 的键
+        // 基本数据类型：number string boolean undefined null
+        // 引用数据类型：object array {} function Set Map等
+        const m = new Map();
+        m.set('name', 'Alex');
+        m.set(true, 'ture');
+        m.set({}, 'object');
+        m.set(new Set([1, 2]), 'set');
+        m.set(undefined, 'undefined');
+        console.log(m);
+    </script>
+</body>
+
+</html>

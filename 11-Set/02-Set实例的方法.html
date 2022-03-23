@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-Set实例的方法</title>
+</head>
+
+<body>
+    <script>
+        // 1.方法
+        // add()添加Set成员
+        const s = new Set();
+        // add方法可以连写
+        s.add(1).add(2).add(3);
+        console.log(s);                 // Set(3){1, 2, 3}
+        // has()查看Set中有没有相关成员,返回布尔值
+        console.log(s.has(1));          // true
+        console.log(s.has(4));          // false
+        // delete()删除Set中的成员
+        s.delete(1);
+        s.delete(4);                    // 如果使用 delete()删除不存在的Set成员，什么都不会发生，也不会报错
+        console.log(s)
+        // clear()清空Set中的所有成员
+        s.clear();
+        console.log(s);                 // Set(0) {size: 0}
+        // forEach()遍历整个Set, 按照成员添加顺序遍历
+        const ss = new Set();
+        ss.add(1).add(2).add(3);
+        // forEach()格式 forEach(回调函数, this指向)
+        // Set中 Value = Key，为了统一
+        ss.forEach(function (value, key, set) {
+            console.log(value, key, set);
+            console.log(set === ss);
+            console.log(this);
+        }, document);
+
+        // ss.forEach((value, key, set) => {
+        //     console.log(value, key, set);
+        //     console.log(this);
+        // }, document);
+    </script>
+</body>
+
+</html>

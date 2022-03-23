@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-Map实例的方法和属性</title>
+</head>
+
+<body>
+    <script>
+        // 1.方法
+        // set() 设置成员
+        const m = new Map();
+        m.set('name', 'Alex').set('age', 18).set('name', 'ZhangSan');
+        console.log(m);                        // Map(2) {'name' => 'ZhangSan', 'age' => 18}
+
+        // get() 获取成员，通过键来获取值
+        console.log(m.get('name'));           // ZhangSan
+        // 当获取不存在的成员，返回 undefined
+        console.log(m.get('sex'));           // undefined
+
+        // has()，判断有没有指定的键，返回布尔值
+        console.log(m.has('name'));          // true
+        console.log(m.has('sex'));           // false
+
+        // delete()，删除成员，通过键来删除
+        m.delete('age');
+        // 使用delete()，删除不存在的成员，什么都不会发生，也不会报错
+        m.delete('sex');
+        console.log(m);
+
+        // clear()，清空Map所有成员
+        m.clear();
+        console.log(m);                     // Map(0) {size: 0}
+
+        // forEach()，遍历Map的成员
+        m.set('age', 18).set('name', 'Alex').set('sex', 'male');
+        m.forEach(function (value, key, map) {
+            console.log(value, key, map);
+            console.log(this);
+        }, document)
+
+
+        // 2.属性
+        // size，查看有几个成员
+        console.log(m.size);              // 3
+
+    </script>
+</body>
+
+</html>
