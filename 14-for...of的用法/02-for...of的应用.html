@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-for...of的应用</title>
+</head>
+
+<body>
+    <script>
+        // 1.与 break continue 一起使用
+        // const arr = [1, 2, 3];
+        // for (const item of arr) {
+        //     if (item === 2) {
+        //         // break;
+        //         continue;
+        //     }
+        //     console.log(item);
+        // }
+
+        // 3.在for...of中取得数组的索引
+        // const arr2 = [1, 2, 3];
+        // keys()得到索引的可遍历对象，可以遍历出索引值
+        // for (const key of arr2.keys()) {
+        //     console.log(key);
+        // }
+        // values() 得到的是值的可遍历对象，可以遍历出值
+        // for (const value of arr2.values()) {
+        //     console.log(value);
+        // }
+
+        // for (const value of arr2) {
+        //     console.log(value);
+        // }
+
+        // entries() 得到的是索引+值组成的数组的可遍历对象
+        const arr = [1, 2, 3];
+        // for (const entries of arr.entries()) {
+        //     console.log(entries);           // [0, 1] [1, 2] [2, 3]
+        // }
+
+        // 配合解构赋值
+        for (const [index, value] of arr.entries()) {
+            console.log(index, value); // 0 1  1 2   2 3
+        }
+    </script>
+</body>
+
+</html>

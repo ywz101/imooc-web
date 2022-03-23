@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-原生可遍历和非原生可遍历</title>
+</head>
+
+<body>
+    <P>1</P>
+    <P>2</P>
+    <P>3</P>
+
+    <script>
+        // 1.什么是可遍历
+        // 只要有 Symbol.iterator方法，并且这个方法可以生成可遍历对象，就是可遍历的
+        // 只要可遍历，就可以使用 for...of循环统一遍历
+
+        // 2.有哪些是原生可遍历的
+        // 数组
+        // 字符串
+        // Set
+        // Map
+        // arguments
+        // NodeList
+        //  for (const item of [1, 2, 3]) {
+        //      console.log(item);
+        //  }
+
+        // for (const item of new Set([1, 2])) {
+        //     console.log(item);
+        // }
+
+        // 遍历 NodeList
+        // for (const elem of document.querySelectorAll('p')) {
+        //     console.log(elem);
+        //     elem.style.color = 'red';
+        // }
+
+
+
+        // 3.非原生可遍历的有哪些
+        // 一般的对象
+        const person = {
+            sex: 'male',
+            age: 18
+        };
+        // 一般对象使用for...in遍历
+
+        // 有 length 和 索引值的对象(有规律)
+        const obj = {
+            0: 'alex',
+            1: 'male',
+            length: 2
+        };
+        
+
+
+
+    </script>
+</body>
+
+</html>

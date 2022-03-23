@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-使用Iterator的场合</title>
+</head>
+
+<body>
+    <script>
+        // for...of
+        // 1.数组的展开运算符
+        console.log(...[1, 2, 3]); // 1, 2, 3
+        // 2.字符串的展开
+        console.log(...'str');   // s t r
+        // 3.Set的展开
+        console.log(...new Set([1, 2, 3]));     // 1 2 3
+
+        // 2.数组的解构赋值
+        // const [a, b] = [1, 2];
+        // const [a, b] = 'hi';
+        // const [a, b] = [...[1, 2]];
+        // const [a, b] = new Set([3, 2]);
+        // console.log(a, b)
+
+        // 3.Set和Map的构造函数
+        // new Set(iterator)
+        // new Map(iterator)
+
+
+    </script>
+</body>
+
+</html>
