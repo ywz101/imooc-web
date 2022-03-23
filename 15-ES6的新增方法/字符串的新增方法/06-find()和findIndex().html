@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-find()和findIndex()</title>
+</head>
+
+<body>
+    <script>
+        // find()：找到满足条件的一个，立即返回
+        // findIndex(): 找到满足条件的一个，立即返回索引号
+
+        // 1.基本用法
+        console.log([1, 5, 10, 15].find((value, index, arr) => {
+            return value > 9;
+        }));                        // 10 满足条件的一个，跳出遍历，立即返回
+
+        console.log([1, 5, 10, 15].findIndex((value, index, arr) => {
+            return value > 9;      // 2 满足条件的一个，跳出遍历，立即返回
+        }));
+
+
+        // 2.第二个参数 (this指向)
+
+
+        // 3.应用
+        // 数据
+        const students = [
+            {
+                name: 'ZhangSan',
+                age: 16,
+                sex: 'male'
+            },
+            {
+                name: 'Alex',
+                age: 18,
+                sex: 'male'
+            },
+            {
+                name: 'Hanmeimei',
+                age: 13,
+                sex: 'female'
+            }
+        ];
+        // 数组 调用 find()
+        // 筛选性别
+        console.log(students.find(value => value.sex === 'female'));
+        // 筛选名字
+        console.log(students.find(value => value.name === 'Alex'));
+        // 筛选年龄
+        console.log(students.find(value => value.age === 18));
+    </script>
+</body>
+
+</html>

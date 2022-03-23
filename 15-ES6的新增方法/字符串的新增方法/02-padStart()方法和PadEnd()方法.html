@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-padStart()方法和PadEnd()方法</title>
+</head>
+
+<body>
+    <script>
+        // 补全字符串长度
+        // pad(填充) Start(头部)
+        // padStart(头部填充)
+        // 1.基本用法
+        // const str = 'x'.padStart(5, 'ab');
+        // console.log(str);                   // ababx
+        // padEnd(尾部填充)
+        // console.log('y'.padEnd(5, 'ab'));   // yabab
+        // console.log('y'.padEnd(4, 'ab'));   // yaba
+
+
+        // 2.注意事项
+        // 当原字符串长度，等于或大于最大长度，不会消减字符串，字符串补全不生效，返回原字符串
+        // console.log('xxx'.padStart(2, 'ab')); // xxx
+        console.log('abc'.padStart(10, '0123456789'));   // 0123456abc
+        console.log('abc'.padEnd(10, '0123456789'));     // abc0123456
+
+        console.log('x'.padStart(4));                    //    x
+        console.log('x'.padEnd(4));                     // x    
+
+
+        // 3.应用
+        // 显示日期格式
+        // 2020-10-10
+        // 2020-01-01
+        console.log('10'.padStart(2, 0));           // 10
+        console.log('1'.padStart(2, 0));            // 01
+    </script>
+</body>
+
+</html>
