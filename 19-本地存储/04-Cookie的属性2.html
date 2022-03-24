@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-Cookie的属性2</title>
+</head>
+
+<body>
+    <script>
+        // 了解为主
+        // 1.Domain 域(域名)
+        // Domain 限定了访问 Cookie 的范围 (不同域名下)
+
+
+        // 2.如何通过 JS 来添加 domain
+        // 使用 JS 只能读写当前域或父域的 Cookie ，无法读写其他域的 Cookie
+        // document.cookie = 'username=alex; domain=www.imooc.com';
+
+        // 当前域: www.imooc.com / m.imooc.com
+        // 父域: .imooc.com   
+
+
+        // 3.Path 路径
+        // Path 限定了访问 Cookie 的范围 (同一个域名下)
+        document.cookie = 'username=alex; path=/course/list';
+        // 使用 JS 只能读写当前路径和上级路径的 cookie , 无法读写下级路径的 Cookie
+
+        // 只有Name value domain path 都一样的时候才是同一个 Cookie
+
+
+        // 4.HttpOnly
+        // 设置了 HttpOnly 属性的 Cookie 不能通过 JS 去访问
+
+
+        // 5.Secure 安全标志
+        // Secure 限定了只有在使用 https 而不是 http 的情况下才可以发送给服务端
+        
+    </script>
+</body>
+
+</html>

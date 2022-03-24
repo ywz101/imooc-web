@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Cookie的属性</title>
+</head>
+
+<body>
+    <script>
+        // 1.Cookie 的名称 (Name) 和 值（value）
+        // 最重要的两个属性，创建 Cookie 的时候必须填写，其它属性可以使用默认值
+
+
+        // Cookie 的名称或值如果包含非英文字母，则写入时需要使用 encodeURIComponent() 编码，读取时使用 decodeURIComponent() 解码
+        // document.cookie = "username=alex"; // (这种情况不用)
+        // document.cookie = "username=张三"; // (前端可能没问题，后端可能会出问题)
+        // document.cookie = `username=${encodeURIComponent('张三')}`;
+        // document.cookie = `username=${encodeURIComponent('用户名')} = ${encodeURIComponent('张三')}`;
+
+        // 一般名称使用英文字母，不要用中文，值可以用中文，但是要编码
+
+
+        // 2.失效(到期)时间
+        // 对于失效的 Cookie ，会被浏览器清除
+        // 如果没有设置失效时间，这样的 Cookie 称为会话 Cookie
+        // 它存在内存中，当会话结束，也就是浏览器关闭时， Cookie 消失
+
+        // document.cookie = 'username=alex';
+
+        // 想长时间存在，设置 Expires 或 Max-Age
+        // Expires 值 为 Date类型
+        // document.cookie = `username=alex; expires=${new Date('2100-01-01 00:00:00')}`
+        // Max-Agea 值 为 数字,表示当前时间 + 多少秒后过期，单位是秒
+        // 最大的存活时间是30天
+        document.cookie = `username=alex; max-age=${24 * 3600 * 30}`;
+
+        // 3.删除 Cookie 的方法
+        // 如果 max-age 的值是0或负数，则 Cookie 会被删除
+        // document.cookie = 'username=alex; max-age=0';
+        document.cookie = 'username=alex; max-age=-1';
+
+    </script>
+</body>
+
+</html>
