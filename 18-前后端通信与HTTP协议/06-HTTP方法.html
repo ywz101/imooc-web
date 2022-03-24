@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-HTTP方法</title>
+</head>
+
+<body>
+    <script>
+        // 1.常用的HTTP方法
+        // 浏览器发送请求时采用的方法，和响应无关
+
+        // GET POST PUT DELETE
+        // 所谓的HTTP方法就是用来定义对于资源采取什么样的操作的，有各自的语义。
+
+
+        // 2.HTTP方法的语义
+        // GET获取数据: 如获取资源 （文件）
+        // POST创建数据：如用户注册
+        // PUT更新数据：如修改个人信息
+        // DELETE删除数据：如删除一条评论
+        // 这些方法虽然有各自的语义，但是并不是强制性的
+
+
+        // RESTful 接口设计
+        // 一种接口设计风格，充分利用 HTTP 方法的语义
+
+        // 通过用户 ID 获取个人信息，使用 GET 方法
+        // https://www.imooc.com/api/http/getUser?id=1  (可以把这个地址简单的理解为接口)
+
+        // 注册新用户，使用 POST 方法
+        // https://www.imooc.com/api/http/addUser
+
+        // 修改用户信息，使用 PUT 方法
+        // https://www.imooc.com/api/http/modifyUser
+
+        // 删除用户信息，使用 DELETE 方法
+        // https://www.imooc.com/api/http/deleteUser
+
+    </script>
+</body>
+
+</html>

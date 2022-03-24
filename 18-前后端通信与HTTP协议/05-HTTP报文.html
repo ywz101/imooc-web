@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-HTTP报文</title>
+</head>
+
+<body>
+    <!-- GET -->
+    <form action="https://www.imooc.com" method="GET">
+        <input type="text" name="username" placeholder="用户名" id="" />
+        <input type="password" name="password" placeholder="密码" id="" />
+        <input type="submit" value="注册" />
+    </form>
+    <!-- POST -->
+    <form action="https://www.imooc.com" method="POST">
+        <input type="text" name="username" placeholder="用户名" id="" />
+        <input type="password" name="password" placeholder="密码" id="" />
+        <input type="submit" value="注册" />
+    </form>
+    <script>
+        // 1.HTTP 报文是什么
+        // 浏览器向服务器发送请求时，请求本身就是信息，叫请求报文
+        // 服务器向浏览器发送响应时传输的信息，叫响应报文
+
+
+        // 2.HTTP 报文格式
+        // 请求报文 -> 请求头：起始行 + 首部  请求体：主体
+        // 响应报文 -> 响应头：起始行 + 首部  主体：响应体
+        
+
+        // GET请求，没有请求体，数据是通过请求头携带
+        // POST请求，有请求体，数据是通过请求体携带
+    </script>
+</body>
+
+</html>
