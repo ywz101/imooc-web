@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-初识localStorage</title>
+</head>
+
+<body>
+    <form action="https://www.imooc.com/" method="POST" id="login">
+        <input type="text" name="username" id="">
+        <p>
+            <input type="password" name="password" id="">
+        </p>
+        <input type="submit" value="登录" id="btn">
+    </form>
+
+    <script>
+        // 1.localStorage 是什么
+        // localStorage 也是一种浏览器存储数据的方式 (本地存储) , 它只是存储在本地，不会发送到服务器端
+
+        // 单个域名下的 localStorage 总大小有限制
+
+
+        // 2.在浏览器中来操作 localStorage
+
+
+        // 3.localStorage 的基本用法
+        // console.log(localStorage);  // Storage {username: 'alex', length: 1}
+
+        // localStorage.setItem('username', 'alex');
+        // localStorage.setItem('username', 'zs');
+        // localStorage.setItem('age', '18');
+        // localStorage.setItem('sex', 'male');
+        // length属性
+        // console.log(localStorage.length);           // 3
+
+        // 如何获取 getItem()
+        // console.log(localStorage.getItem('age'));   // 18
+        // 获取不存在的会返回 null
+        // console.log(localStorage.getItem('name'));   // null
+        // 如何删除 removeItem()
+        // 删除不存在的 key ，也不会报错
+        // console.log(localStorage.removeItem('username'));
+        // console.log(localStorage.removeItem('username'));
+        // console.log(localStorage);  
+
+        // clear()
+        // localStorage.clear()
+
+
+
+        // 4.使用 localStorage 来实现自动填充功能(保存在本地，不需要发送到服务器端)
+        const loginForm = document.querySelector('#login');
+        const btn = document.querySelector('#btn');
+
+        const username = localStorage.getItem('username');
+
+        if (username) {
+            loginForm.username.value = username;
+        }
+
+        btn.addEventListener('click', e => {
+            // 阻止默认行为
+            e.preventDefault();
+            // console.log(loginForm.username.value);
+            localStorage.setItem('username', loginForm.username.value);
+
+            loginForm.submit();
+        }, false);
+    </script>
+</body>
+
+</html>
