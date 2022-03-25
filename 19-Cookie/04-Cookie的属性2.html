@@ -17,7 +17,7 @@
 
         // 2.如何通过 JS 来添加 domain
         // 使用 JS 只能读写当前域或父域的 Cookie ，无法读写其他域的 Cookie
-        // document.cookie = 'username=alex; domain=www.imooc.com';
+        // document.cookie = 'sex=male; domain=127.0.0.1';
 
         // 当前域: www.imooc.com / m.imooc.com
         // 父域: .imooc.com   
@@ -25,8 +25,9 @@
 
         // 3.Path 路径
         // Path 限定了访问 Cookie 的范围 (同一个域名下)
-        document.cookie = 'username=alex; path=/course/list';
         // 使用 JS 只能读写当前路径和上级路径的 cookie , 无法读写下级路径的 Cookie
+        // document.cookie = 'username=alex; path=/course/list';
+
 
         // 只有Name value domain path 都一样的时候才是同一个 Cookie
 

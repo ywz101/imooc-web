@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-cookie的封装</title>
+</head>
+
+<body>
+    <button id="cnBtn">中文</button>
+    <button id="enBtn">英文</button>
+
+    <script type="module">
+        // set
+        // get
+        // remove
+
+
+        // import { set, get, remove } from './05-cookie.js';
+        // set('username', 'alex');
+        // set('username', 'zs');
+        // set('age', 18);
+        // set('用户名', '张三');
+        // set('sex', 'male', {
+        //     maxAge: 30 * 24 * 3600,
+        // });
+        // 删除，被删除后显示 undefined
+        // remove('username');
+        // remove('用户名');
+        // console.log(get('username'));
+        // console.log(get('age'));
+        // console.log(get('sex'));
+        // console.log(get('用户名'));
+
+
+        // 使用封装好的 cookie 实现网站语言切换
+        // 前端只要做的是把正确的、合适的值保存到 cookie 里面，大多数内容交给后端来处理
+
+        import { set } from './05-cookie.js';
+        // 获取元素
+        // 中文按钮
+        const cnBtn = document.querySelector('#cnBtn');
+        // 英文按钮
+        const enBtn = document.querySelector('#enBtn');
+
+        // 绑定点击事件
+        // 中文按键
+        cnBtn.addEventListener(
+            'click',
+            () => {
+                set('language', 'cn', {
+                    maxAge: 30 * 24 * 3600
+                });
+                window.location = './05-cookie.html';
+            },
+            false);
+
+        // 英文按键
+        enBtn.addEventListener(
+            'click',
+            () => {
+                set('language', 'en', {
+                    maxAge: 30 * 24 * 3600
+                });
+                window.location = './05-cookie.html';
+            },
+            false);
+
+
+
+    </script>
+</body>
+
+</html>

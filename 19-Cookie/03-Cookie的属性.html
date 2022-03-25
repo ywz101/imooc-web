@@ -22,7 +22,6 @@
 
         // 一般名称使用英文字母，不要用中文，值可以用中文，但是要编码
 
-
         // 2.失效(到期)时间
         // 对于失效的 Cookie ，会被浏览器清除
         // 如果没有设置失效时间，这样的 Cookie 称为会话 Cookie
@@ -34,13 +33,14 @@
         // Expires 值 为 Date类型
         // document.cookie = `username=alex; expires=${new Date('2100-01-01 00:00:00')}`
         // Max-Agea 值 为 数字,表示当前时间 + 多少秒后过期，单位是秒
-        // 最大的存活时间是30天
-        document.cookie = `username=alex; max-age=${24 * 3600 * 30}`;
+        // 比如设置最大的存活时间是30天
+        // document.cookie = `username=alex; max-age=${24 * 3600 * 30}`;
 
         // 3.删除 Cookie 的方法
         // 如果 max-age 的值是0或负数，则 Cookie 会被删除
         // document.cookie = 'username=alex; max-age=0';
-        document.cookie = 'username=alex; max-age=-1';
+        // document.cookie = 'username=alex; max-age=-1';
+
 
     </script>
 </body>

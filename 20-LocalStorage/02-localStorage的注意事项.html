@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-localStorage的注意事项</title>
+</head>
+
+<body>
+    <script>
+        // 1.localStorage (本地存储) 的存储期限
+        // localStorage 是持久化的本地存储，除非手动清除，(比如通过 JS 删除，或者清除浏览器缓存)，否则数据是永远不会过期的
+
+        // 2.sessionStorage (会话存储)
+        // 当会话结束(比如关闭浏览器)的时候，sessionStorage 中的数据会被清空
+        // 用法和 localStorage 一样
+        // sessionStorage.setItem('username', 'alex');
+        // sessionStorage.getItem('username');
+        // sessionStorage.removeItem();
+        // sessionStorage.clear();
+
+
+        // 3.localStorage 键和值的类型
+        // localStorage 存储的键和值只能是字符串类型
+        // 不是字符串类型，也会先转为字符串类型再存进去
+
+        // localStorage.setItem({}, 18);   // [object object] 18
+        // console.log(
+        //     typeof localStorage.getItem('[object Object]'),
+        //     localStorage.getItem('[object Object]')
+        // );
+
+
+        // 4.不同域名下能否共用 localStorage
+        // 不同域名是不能共用 localStorage 的
+        
+
+        // 5.localStorage 的兼容性
+        // IE7及以下版本不支持 localStorage，IE8开始支持
+        
+        // 兼容性查询网站：
+        // https://caniuse.com
+
+    </script>
+</body>
+
+</html>
