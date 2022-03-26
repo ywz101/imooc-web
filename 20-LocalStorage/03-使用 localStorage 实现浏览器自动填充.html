@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="login" action="https://www.imooc.com" method="post">
+        <p>
+            用户名：
+            <input type="text" name="username">
+        </p>
+        <p>
+            密码：
+            <input type="password" name="password">
+        </p>
+        <p>
+            <input id="btn" type="submit" value="登录">
+        </p>
+    </form>
+
+    <script>
+        // 获取元素
+        const loginForm = document.querySelector('#login');
+        const btn = document.querySelector('#btn');
+        // 通过 'username'这个key 获取存储在本地的数据，并将其赋值为名叫 username 的常量中
+        const username = localStorage.getItem('username');
+        // if 判断，如果 本地数据 username 有值的话
+        if (username) {
+            // 将 username 的值，填充到 用户名文本框
+            loginForm.username.value = username;
+        }
+        // 给按钮绑定点击事件
+        btn.addEventListener(
+            'click',
+            e => {
+                // 因为是 form 表单，不希望自动提交，需要验证后再提交
+                // 所以使用 e.preventDefault()方法 阻止浏览器默认行为
+                e.preventDefault();
+                // 数据验证
+
+                // 将用户在 用户名文本框 输入的信息存储在本地
+                localStorage.setItem('username', loginForm.username.value);
+                // 手动提交数据
+                loginForm.submit();
+            },
+            false
+        );
+
+    </script>
+</body>
+
+</html>

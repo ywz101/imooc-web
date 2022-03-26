@@ -39,34 +39,37 @@
         // 前端只要做的是把正确的、合适的值保存到 cookie 里面，大多数内容交给后端来处理
 
         import { set } from './05-cookie.js';
-        // 获取元素
-        // 中文按钮
-        const cnBtn = document.querySelector('#cnBtn');
-        // 英文按钮
-        const enBtn = document.querySelector('#enBtn');
+        set('username', 'alex');
+        set('age', 18);
+        set('sex', 'male');
+        // // 获取元素
+        // // 中文按钮
+        // const cnBtn = document.querySelector('#cnBtn');
+        // // 英文按钮
+        // const enBtn = document.querySelector('#enBtn');
 
-        // 绑定点击事件
-        // 中文按键
-        cnBtn.addEventListener(
-            'click',
-            () => {
-                set('language', 'cn', {
-                    maxAge: 30 * 24 * 3600
-                });
-                window.location = './05-cookie.html';
-            },
-            false);
+        // // 绑定点击事件
+        // // 中文按键
+        // cnBtn.addEventListener(
+        //     'click',
+        //     () => {
+        //         set('language', 'cn', {
+        //             maxAge: 30 * 24 * 3600
+        //         });
+        //         window.location = './05-cookie.html';
+        //     },
+        //     false);
 
-        // 英文按键
-        enBtn.addEventListener(
-            'click',
-            () => {
-                set('language', 'en', {
-                    maxAge: 30 * 24 * 3600
-                });
-                window.location = './05-cookie.html';
-            },
-            false);
+        // // 英文按键
+        // enBtn.addEventListener(
+        //     'click',
+        //     () => {
+        //         set('language', 'en', {
+        //             maxAge: 30 * 24 * 3600
+        //         });
+        //         window.location = './05-cookie.html';
+        //     },
+        //     false);
 
 
 

@@ -9,14 +9,6 @@
 </head>
 
 <body>
-    <form action="https://www.imooc.com/" method="POST" id="login">
-        <input type="text" name="username" id="">
-        <p>
-            <input type="password" name="password" id="">
-        </p>
-        <input type="submit" value="登录" id="btn">
-    </form>
-
     <script>
         // 1.localStorage 是什么
         // localStorage 也是一种浏览器存储数据的方式 (本地存储) , 它只是存储在本地，不会发送到服务器端
@@ -45,31 +37,14 @@
         // 删除不存在的 key ，也不会报错
         // console.log(localStorage.removeItem('username'));
         // console.log(localStorage.removeItem('username'));
-        // console.log(localStorage);  
+        // console.log(localStorage);
 
         // clear()
         // localStorage.clear()
 
 
 
-        // 4.使用 localStorage 来实现自动填充功能(保存在本地，不需要发送到服务器端)
-        const loginForm = document.querySelector('#login');
-        const btn = document.querySelector('#btn');
 
-        const username = localStorage.getItem('username');
-
-        if (username) {
-            loginForm.username.value = username;
-        }
-
-        btn.addEventListener('click', e => {
-            // 阻止默认行为
-            e.preventDefault();
-            // console.log(loginForm.username.value);
-            localStorage.setItem('username', loginForm.username.value);
-
-            loginForm.submit();
-        }, false);
     </script>
 </body>
 
