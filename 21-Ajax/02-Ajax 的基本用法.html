@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-Ajax 的基本用法</title>
+</head>
+
+<body>
+    <script>
+        // 1.XMLHttpRequest 
+        // 默认没有 Ajax 这个东西
+        // console.log(Ajax); // Error: Ajax is not defined
+
+        // Ajax 想要实现浏览器与服务器之间的异步通信，需要依靠 XMLHttpRequest, 它是一个构造函数。
+
+        // 不论是 XMLHttpRequest 构造函数, 还是 Ajax, 都没有和具体的某种数据格式绑定。
+
+
+
+        // 2.Ajax 的使用步骤
+        // (1) 实例化构造函数，创建 xhr 对象
+        const xhr = new XMLHttpRequest();
+
+
+        // (2) 监听事件，处理响应
+        // 当获取到响应后，会触发 xhr 对象的 readystatechange (就绪状态) 事件，可以在该事件中对响应进行处理
+        xhr.onreadystatechange = () => {
+            // readystatechange 事件监听 readyState 这个状态(值)的变化
+            // 它的值从 0~4，一共 5 个状态
+            // 0: 未初始化。 尚未调用 open()
+            // 1: 启动。已经调用 open()，但尚未调用 send()
+            // 2: 发送。已经调用 send()，但尚未接收到响应。
+            // 3: 接收。已经接收到部分响应数据。
+            // 4: 完成。已经接收到全部响应数据，而且已经可以在浏览器中使用了。
+        };
+
+
+        // (3) 准备发送请求
+        // xhr.open('HTTP 方法[GET、POST、PUT、DELETE]', '地址(url)[可以是远程的请求，也可是本地的请求]', '是否使用异步[true || false]')
+
+        // (4) 发送请求
+        // 调用 xhr 的 send()方法正式发送请求[xhr.send([可以携带数据，POST可以通过请求体携带数据，GET只能在请求头携带数据，不能在此外传])]
+        // xhr.send(null);     // 传入 null 表示不传数据，是一种兼容性做法
+
+
+        // 比如：
+        xhr.onreadystatechange = () => {
+            // 判断 readyState 的状态，如果尚未完成, 直接返回
+            if (xhr.redayState !== 4) return;
+            // 判断 HTTP CODE: HTTP 状态码
+            // 比如：{200 状态说明：OK} {404 状态说明：Not Found}
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                console.log('正常使用响应数据');
+                // 通过 xhr.responseText 获取到数据的字符串形式
+            } else {
+                console.log('Error');
+            }
+        };
+
+        // 注意：
+        // readystatechange 事件也可以配合 addEventListener() 使用, 不过要注意，IE6~8 不支持 addEventListener()
+        // 为了兼容性, readystatechange 中不使用 this, 而是直接使用 xhr
+
+    </script>
+</body>
+
+</html>
