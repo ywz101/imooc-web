@@ -10,7 +10,45 @@
 
 <body>
     <script>
-        
+        // 0.准备好通信地址：(接口)
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+        // // 1.创建 xhr 对象
+        // const xhr = new XMLHttpRequest();
+        // // 2.监听事件
+        // xhr.onreadystatechange = () => {
+        //     // 如果数据还没有准备好，就直接返回 return (undefined)
+        //     // xhr.readyState !== 4，数据还没有准备好
+        //     if (xhr.readyState !== 4) return;
+        //     // HTTP CODE 是否在成功的范围内(200~299) 或者 HTTP CODE 等于 304
+        //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+        //         console.log('成功了');
+        //         console.log(xhr.responseText);
+        //         console.log(typeof xhr.responseText);
+        //     } 
+        // };
+        // xhr.open('GET', url, true);
+        // xhr.send(null);
+
+
+
+        // 1.创建 xhr 对象
+        const xhr = new XMLHttpRequest();
+        // 2.监听事件
+        xhr.onreadystatechange = () => {
+            // 如果数据还没有准备好(xhr.readyState !== 4)，直接 return
+            if (xhr.readyState !== 4) return;
+            // 如果 HTTP CODE (xhr.status) 在 200~299 之间 ，或者 等于 304
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                // 打印输出 响应数据
+                console.log(xhr.responseText);
+                // 检测 响应数据 类型
+                console.log(typeof xhr.responseText);
+            }
+        };
+        // 3.准备open()
+        xhr.open('GET', url, true);
+        // 4.发送
+        xhr.send(null);
     </script>
 </body>
 
