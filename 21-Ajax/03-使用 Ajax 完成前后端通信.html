@@ -39,10 +39,12 @@
             if (xhr.readyState !== 4) return;
             // 如果 HTTP CODE (xhr.status) 在 200~299 之间 ，或者 等于 304
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                console.log(xhr.status);      // 200
+                console.log(xhr.statusText); // OK
                 // 打印输出 响应数据
                 console.log(xhr.responseText);
                 // 检测 响应数据 类型
-                console.log(typeof xhr.responseText);
+                console.log(typeof xhr.responseText); // string
             }
         };
         // 3.准备open()
