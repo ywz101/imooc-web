@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-GET请求</title>
+</head>
+
+<body>
+    <script>
+        // 1.携带数据 
+        // GET 请求不能通过请求体携带数据，但可以通过请求头携带
+        // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+        // const url = 'https://www.imooc.com/api/http/search/suggest?words=js&username=alex&age=18';
+        const url3 = `https://www.imooc.com/api/http/search/suggest?words=${encodeURIComponent('前端')}`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) return;
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                console.log(xhr.responseText);
+                console.log(typeof xhr.responseText);
+            }
+        };
+        xhr.open('GET', url3, true);
+        // 使用 GET 在请求体中携带数据不会报错，但不会发送
+        xhr.send(null);
+
+
+        // 2.数据编码
+        // 如果携带的数据是非英文字母的话，比如说汉字，就需要编码之后再发送给后端，不然会造成乱码问题
+        // 可以使用 encodeURIComponent() 编码
+        // 利用模板字符串
+
+        // 编码前
+        const url2 = 'https://www.imooc.com/api/http/search/suggest?words=前端';
+        // 编码后
+        // const url3 = `https://www.imooc.com/api/http/search/suggest?words=${encodeURIComponent('前端')}`;
+    </script>
+</body>
+
+</html>

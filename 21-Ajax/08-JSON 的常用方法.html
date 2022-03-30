@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-JSON 的常用方法</title>
+</head>
+
+<body>
+    <script>
+        // 1. JSON.parse()
+        // JSON.parse() 可以将 JSON 格式的字符串解析成 JS 中对应的值
+        // 一定要是合法的 JSON 字符串，否则会报错
+
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                console.log(xhr.responseText);
+                console.log(JSON.parse(xhr.responseText));
+                console.log(Array.isArray(JSON.parse(xhr.responseText)));
+            }
+        };
+
+        // xhr.open('GET', url, true);
+
+        xhr.open('POST', url, true);
+
+        // 2. JSON.stringify()
+        // 可以将 JS 的基本数据类型、对象或数组转换成 JSON 格式的字符串
+        xhr.send(JSON.stringify({
+            username: 'alex',
+            age: 18
+        }));
+
+    </script>
+</body>
+
+</html>

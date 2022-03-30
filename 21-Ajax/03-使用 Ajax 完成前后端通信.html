@@ -47,10 +47,10 @@
                 console.log(typeof xhr.responseText); // string
             }
         };
-        // 3.准备open()
-        xhr.open('GET', url, true);
-        // 4.发送
-        xhr.send(null);
+        // 3.准备发送请求，通过调用open()
+        xhr.open('GET', url, true); // 'GET'，无法在此处传参
+        // 4.发送请求，通过调用send(),()内的参数是通过请求体发送
+        xhr.send(null);             // null 是兼容性写法
     </script>
 </body>
 

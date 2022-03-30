@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-POST 请求</title>
+</head>
+
+<body>
+    <script>
+        // 1.携带数据
+        // POST 请求主要通过请求体携带数据，同时也可以通过请求头携带
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                console.log(xhr.responseText);
+            }
+        };
+
+        xhr.open('post', url, true);
+
+        xhr.send('username=alex&age=18');
+    </script>
+</body>
+
+</html>
