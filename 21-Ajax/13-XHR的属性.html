@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-XHR的属性</title>
+</head>
+
+<body>
+    <script>
+        // 1.responseType 和 response 属性
+        // responseType默认值是空或也就是text
+        // IE10 开始支持
+
+        // responseText: 文本形式的响应内容
+        // responseText 只能在没有设置 responseType 或者 responseType=''或 response='text'的时候，才能使用
+
+
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                console.log('response:\n', xhr.response);
+            }
+        };
+
+        xhr.open('GET', url, true);
+        // 在确定后端传过来的是数据是 JSON 格式的时候，使用
+        
+        xhr.responseType = 'json';
+
+        // 2.设置请求响应时间 (默认单位毫秒)
+        // IE8 开始支持
+        xhr.timeout = 10000;
+
+        xhr.send(null);
+
+        // 3.withCredentials 属性
+        // IE10开始支持
+        // 指定使用 Ajax 发送请求时是否携带 Cookie
+        // 使用 Ajax 发送请求，默认情况下，同域时，会携带 Cookie.跨域时，不会
+        // xhr.withCredentials = true;
+        // 最终能否成功跨域携带 Cookie，还要看服务器同不同意
+    </script>
+</body>
+
+</html>

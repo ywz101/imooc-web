@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-XHR 的事件</title>
+</head>
+
+<body>
+    <script>
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+        const url2 = 'https://www.iimooc.com/api/http/search/suggest?words=js';
+
+        const xhr = new XMLHttpRequest();
+
+        // 1.load 事件
+        // 响应数据可用时触发
+        xhr.addEventListener('load', () => {
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                console.log(xhr.response);
+            }
+        }, false);
+
+        // 2.error 事件
+        // 请求发生错误时触发
+        xhr.addEventListener('error', () => {
+            console.log('error 事件触发');
+        }, false);
+
+        // 3.arbot 事件
+        // 调用 abort() 终止请求时触发
+        xhr.addEventListener('abort', () => {
+            console.log('abort 事件触发');
+        }, false);
+
+        // 4.timeout 事件
+        xhr.addEventListener('timeout', () => {
+            console.log('timeout 事件触发');
+        }, false);
+
+
+
+        xhr.open('get', url, true);
+
+        // xhr.timeout = 1;
+
+        xhr.send(null);
+
+        // xhr.abort();
+
+
+    </script>
+</body>
+
+</html>
